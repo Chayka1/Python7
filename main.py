@@ -71,5 +71,44 @@ def task_1_2():
     print(book)
 
 
+def task_1_3():
+    class Pet:
+        def __init__(self, name, animal_type, age):
+            self.__age = age
+            self.__animal_type = animal_type
+            self.__name = name
+
+        def set_name(self, name):
+            self.__name = name
+
+        def set_animal_type(self, animal_type):
+            self.__animal_type = animal_type
+
+        def set_age(self, age):
+            self.__age = age
+
+        def get_name(self):
+            return self.__name
+
+        def get_animal_type(self):
+            return self.__animal_type
+
+        def get_age(self):
+            return self.__age
+
+        def __str__(self):
+            return f'Имя: {pet.get_name()}\n' \
+                   f'Тип: {pet.get_animal_type()}\n' \
+                   f'Возраст: {pet.get_age()}'
+
+    name = input('Введите имя вашего питомца: ')
+    animal_type = input('Введите тип вашего животного: ')
+    age = input('Введите возраст вашего питомца: ')
+
+    pet = Pet(name, animal_type, age)
+
+    print(pet)
+
+
 if __name__ == '__main__':
-    task_1_2()
+    task_1_3()
