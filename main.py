@@ -145,5 +145,50 @@ def task_2_2():
         print(f'Скорость составляет {car.get_speed()}')
 
 
+def task_2_3():
+    class Information:
+        def __init__(self, name, address, age, telephone_number):
+            self.__telephone_number = telephone_number
+            self.__age = age
+            self.__address = address
+            self.__name = name
+
+        def set_name(self, name):
+            self.__name = name
+
+        def set_address(self, address):
+            self.__address = address
+
+        def set_age(self, age):
+            self.__age = age
+
+        def set_telephone_number(self, telephone_number):
+            self.__telephone_number = telephone_number
+
+        def get_name(self):
+            return self.__name
+
+        def get_address(self):
+            return self.__address
+
+        def get_age(self):
+            return self.__age
+
+        def get_telephone_number(self):
+            return self.__telephone_number
+
+        def __str__(self):
+            return f'Имя: {self.get_name()}\n' \
+                   f'Адрес: {self.get_address()}\n' \
+                   f'Возраст: {self.get_age()}\n' \
+                   f'Номер телефона: {self.get_telephone_number()}\n'
+
+    my = Information('Max', 'Brovary', '18', '+38063548177')
+    mum = Information('Oksana', 'Brovary', '16', '+3806777897')
+    dad = Information('Vova', 'Brovary', '11', '+3806399009')
+
+    print(f'{my}\n{mum}\n{dad}')
+
+
 if __name__ == '__main__':
-    task_2_2()
+    task_2_3()
