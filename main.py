@@ -190,5 +190,52 @@ def task_2_3():
     print(f'{my}\n{mum}\n{dad}')
 
 
+def task_2_4():
+    class Employee:
+        def __init__(self, name, id_number, department, position):
+            self.__position = position
+            self.__department = department
+            self.__id_number = id_number
+            self.__name = name
+
+        def set_name(self, name):
+            self.__name = name
+
+        def set_id_number(self, id_number):
+            self.__id_number = id_number
+
+        def set_department(self, department):
+            self.__department = department
+
+        def set_position(self, position):
+            self.__position = position
+
+        def get_name(self):
+            return self.__name
+
+        def get_id_number(self):
+            return self.__id_number
+
+        def get_department(self):
+            return self.__department
+
+        def get_position(self):
+            return self.__position
+
+        def __str__(self):
+            return f'Имя: {self.get_name()}\n' \
+                   f'Идентификационный номер: {self.get_id_number()}\n' \
+                   f'Отдел: {self.get_department()}\n' \
+                   f'Должность: {self.get_position()}'
+
+    person1 = Employee('Сьюзан Мейерс', '47899', 'Бухгалтерия', 'Вице-президент')
+    person2 = Employee('Марк Джоунс', '39119', 'IT', 'Программист')
+    person3 = Employee('Джой Роджерс', '81774', 'Производственный', 'Инженер')
+
+    print(f'{person1}\n\n'
+          f'{person2}\n\n'
+          f'{person3}')
+
+
 if __name__ == '__main__':
-    task_2_3()
+    task_2_4()
