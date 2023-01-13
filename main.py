@@ -71,7 +71,7 @@ def task_1_2():
     print(book)
 
 
-def task_1_3():
+def task_2_1():
     class Pet:
         def __init__(self, name, animal_type, age):
             self.__age = age
@@ -110,5 +110,40 @@ def task_1_3():
     print(pet)
 
 
+def task_2_2():
+    class Car:
+        def __init__(self, year_model, make):
+            self.__speed = 0
+            self.__make = make
+            self.__year_model = year_model
+
+        def set_year_model(self, year_model):
+            self.__year_model = year_model
+
+        def set_make(self, make):
+            self.__make = make
+
+        def get_speed(self):
+            return self.__speed
+
+        def accelerate(self):
+            self.__speed += 5
+
+        def break_(self):
+            self.__speed -= 5
+
+    car = Car('1900', 'audi')
+
+    for i in range(5):
+        car.accelerate()
+        print(f'Скорость составляет {car.get_speed()}')
+
+    print()
+
+    for i in range(5):
+        car.break_()
+        print(f'Скорость составляет {car.get_speed()}')
+
+
 if __name__ == '__main__':
-    task_1_3()
+    task_2_2()
