@@ -237,5 +237,137 @@ def task_2_4():
           f'{person3}')
 
 
+def task_2_5():
+    class Retailltem:
+        pass
+
+
+
+def task_2_7():
+    import pickle
+
+    class Employee:
+        def __init__(self, id, name, otdel, dolj):
+            self.__id = id
+            self.__name = name
+            self.__otdel = otdel
+            self.__dolj = dolj
+
+        def set_id(self, id):
+            self.__id = id
+
+        def set_name(self, name):
+            self.__name = name
+
+        def set_otdel(self, otdel):
+            self.__otdel = otdel
+
+        def set_dolj(self, dolj):
+            self.__dolj = dolj
+
+        def get_id(self):
+            return self.__id
+
+        def get_name(self):
+            return self.__name
+
+        def get_otdel(self):
+            return self.__otdel
+
+        def get_dolj(self):
+            return self.__dolj
+
+    FIND = 1
+    ADD = 2
+    CHANGE = 3
+    DEL = 4
+    EXIT = 5
+
+    try:
+        file = open('manage.dat', 'rb')
+        base = pickle.load(file)
+        file.close()
+    except FileNotFoundError:
+        base = {}
+
+    def main():
+        print(base)
+        menu()
+
+    def menu():
+        print()
+        print('Меню.')
+        print('---------')
+        print('1. Найти сотрудника.')
+        print('2. Добавить сотрудника.')
+        print('3. Изменить имя, отдел и должность сотрудника.')
+        print('4. Удалить сотрудника.')
+        print('5. Выйти из программы.')
+        print()
+        choice = int(input('Выберите пункт меню: '))
+        while choice < 1 or choice > 5:
+            choice = int(input('Некорректный выбор, попробуйте снова: '))
+
+        if choice == FIND:
+            find()
+            menu()
+        elif choice == ADD:
+            add()
+            menu()
+        elif choice == CHANGE:
+            change()
+            menu()
+        elif choice == DEL:
+            deleted()
+            menu()
+        elif choice == EXIT:
+            file_dump = open('manage.dat', 'wb')
+            pickle.dump(base, file_dump)
+            file_dump.close()
+            print('Словарь сохранён в manage.dat')
+            exit()
+
+    def find():
+        user = input('Введите ID сотрудника для поиска: ')
+        if user in base:
+            print(base[user])
+            print('Есть такой.')
+        else:
+            print('Не найдено.')
+
+    def add():
+        name = input('Имя: ')
+        id = input('ID: ')
+        otdel = input('Отдел: ')
+        dolj = input('Должность:')
+        obj = Employee(name, id, otdel, dolj)
+        base[id] = obj
+
+    def change():
+        ID = input('ID сотрудника: ')
+        if ID in base:
+            name = input('Имя: ')
+            otdel = input('Отдел: ')
+            dolj = input('Должность:')
+            obj = Employee(ID, name, otdel, dolj)
+            base[ID] = obj
+            print('Info. updated.')
+            print(obj.get_name())
+            print(obj.get_otdel())
+            print(obj.get_dolj())
+        else:
+            print('Такого сотрудника нет.')
+
+    def deleted():
+        user = input('ID сотрудника: ')
+        if user in base:
+            del base[user]
+            print('Сотрудник удалён.')
+        else:
+            print('Сотрудник не найден.')
+
+    main()
+
+
 if __name__ == '__main__':
-    task_2_4()
+    task_2_7()
