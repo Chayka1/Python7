@@ -434,7 +434,7 @@ def task_2_8():
             pass
 
         def show_items(self):
-            pass
+            print(self.__item_list)
 
         def clear(self):
             pass
@@ -470,6 +470,9 @@ def task_2_8():
                 add(items)
             elif choice == TOTAL_MONEY:
                 get_money(items)
+            elif choice == SHOW_ITEM:
+                print()
+
 
     def get_menu_choice():
         print('----------------------------')
@@ -491,9 +494,6 @@ def task_2_8():
         item = input('Введите название товара: ')
         items.purchase_item(item)
         print(item + ' в корзине')
-
-    def get_money(items):
-        print(items.get_item_list())
 
     main()
 
