@@ -423,24 +423,30 @@ def task_2_8():
         def get_price(self):
             return self.__price
 
+    class Retailltem:
+        def __init__(self, name, price):
+            self.name = name
+            self.price = price
+
     class CashRegister:
         def __init__(self):
-            self.__item_list = []
+            self.items = []
 
         def purchase_item(self, item):
-            self.__item_list.append(item)
+            self.items.append(item)
 
-        def get_total(self, total):
-            pass
+        def get_total(self):
+            total = 0
+            for item in self.items:
+                total += item.price
+            return total
 
         def show_items(self):
-            print(self.__item_list)
+            for item in self.items:
+                print(item.name + ": " + str(item.price))
 
         def clear(self):
-            pass
-
-        def get_item_list(self):
-            return self.__item_list
+            self.items = []
 
     PUT_ITEM = 1
     TOTAL_MONEY = 2
@@ -467,9 +473,9 @@ def task_2_8():
             choice = get_menu_choice()
 
             if choice == PUT_ITEM:
-                add(items)
+                pass
             elif choice == TOTAL_MONEY:
-                get_money(items)
+                pass
             elif choice == SHOW_ITEM:
                 print()
 
@@ -485,15 +491,6 @@ def task_2_8():
 
         return choice
 
-    def look_up(my_employees):
-        name = input('Введите имя: ')
-        print(my_employees.get(name, 'Это имя не найдено'))
-
-    def add(items):
-
-        item = input('Введите название товара: ')
-        items.purchase_item(item)
-        print(item + ' в корзине')
 
     main()
 
