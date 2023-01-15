@@ -429,7 +429,23 @@ def task_2_8():
                    f'Цена: {self.__price}'
 
     class CashRegister:
-        pass
+        def __init__(self):
+            self.__item_list = []
+
+        def purchase_item(self, item):
+            self.__item_list.append(item)
+
+        def get_total(self, total):
+            pass
+
+        def show_items(self):
+            pass
+
+        def clear(self):
+            pass
+
+        def get_item_list(self):
+            return self.__item_list
 
 
 if __name__ == '__main__':
