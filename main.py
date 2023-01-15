@@ -423,11 +423,6 @@ def task_2_8():
         def get_price(self):
             return self.__price
 
-        def __str__(self):
-            return f'Описание: {self.__product_description}\n' \
-                   f'Количство на складе: {self.__number_of_units}\n' \
-                   f'Цена: {self.__price}'
-
     class CashRegister:
         def __init__(self):
             self.__item_list = []
