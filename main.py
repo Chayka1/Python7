@@ -399,7 +399,7 @@ def task_2_7():
 
 
 def task_2_8():
-    class RetailItem:
+    class Retailltem:
         def __init__(self, name, number_of_units, price):
             self.__name = name
             self.__number_of_units = number_of_units
@@ -446,9 +446,9 @@ def task_2_8():
         def clear(self):
             self.items = []
 
-    product_1 = RetailItem('Пиджак', 12, 59.95)
-    product_2 = RetailItem('Дизайнерские джинсы', 40, 34.95)
-    product_3 = RetailItem('Рубашка', 20, 24.95)
+    product_1 = Retailltem('Пиджак', 12, 59.95)
+    product_2 = Retailltem('Дизайнерские джинсы', 40, 34.95)
+    product_3 = Retailltem('Рубашка', 20, 24.95)
 
     purchase_item = 1
     total = 2
@@ -471,17 +471,17 @@ def task_2_8():
             choice = get_menu_choice()
 
             if choice == purchase_item:
-                number_of_product = input(f'Выберите товар:\n'
-                                          f'1. {product_1}\n'
-                                          f'2. {product_2}\n'
-                                          f'3. {product_3} ')
+                number_of_product = int(input(f'Выберите товар:\n'
+                                              f'1. {product_1}\n'
+                                              f'2. {product_2}\n'
+                                              f'3. {product_3} '))
                 if number_of_product == 1:
                     selected_product = product_1
                 elif number_of_product == 2:
                     selected_product = product_2
                 elif number_of_product == 3:
                     selected_product = product_3
-                    register.purchase_item(selected_product)
+                register.purchase_item(selected_product)
             elif choice == total:
                 register.get_total()
             elif choice == show:
