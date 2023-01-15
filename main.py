@@ -399,7 +399,7 @@ def task_2_7():
 
 
 def task_2_8():
-    class Retailltem:
+    class RetailItem:
         def __init__(self, name, number_of_units, price):
             self.__name = name
             self.__number_of_units = number_of_units
@@ -436,7 +436,7 @@ def task_2_8():
         def get_total(self):
             total_price = 0
             for item in self.items:
-                total_price += item.price
+                total_price += item.get_price()
             return print(total_price)
 
         def show_items(self):
@@ -446,9 +446,9 @@ def task_2_8():
         def clear(self):
             self.items = []
 
-    product_1 = Retailltem('Пиджак', 12, 59.95)
-    product_2 = Retailltem('Дизайнерские джинсы', 40, 34.95)
-    product_3 = Retailltem('Рубашка', 20, 24.95)
+    product_1 = RetailItem('Пиджак', 12, 59.95)
+    product_2 = RetailItem('Дизайнерские джинсы', 40, 34.95)
+    product_3 = RetailItem('Рубашка', 20, 24.95)
 
     purchase_item = 1
     total = 2
