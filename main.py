@@ -238,9 +238,38 @@ def task_2_4():
 
 
 def task_2_5():
-    class Retailltem:
-        pass
+    class RetailItem:
+        def __init__(self, product_description, number_of_units, price):
+            self.__price = price
+            self.__number_of_units = number_of_units
+            self.__product_description = product_description
 
+        def set_product_description(self, product_description):
+            self.__product_description = product_description
+
+        def set_number_of_units(self, number_of_units):
+            self.__number_of_units = number_of_units
+
+        def set_price(self, price):
+            self.__price = price
+
+        def get_product_description(self):
+            return self.__product_description
+
+        def get_number_of_units(self):
+            return self.__number_of_units
+
+        def get_price(self):
+            return self.__price
+
+        def __str__(self):
+            return f'Описание: {self.__product_description}\n' \
+                   f'Количство на складе: {self.__number_of_units}\n' \
+                   f'Цена: {self.__price}'
+
+    product_1 = RetailItem('Пиджак', '12', '59.95')
+
+    print(product_1)
 
 
 def task_2_7():
@@ -369,5 +398,39 @@ def task_2_7():
     main()
 
 
+def task_2_8():
+    class RetailItem:
+        def __init__(self, product_description, number_of_units, price):
+            self.__price = price
+            self.__number_of_units = number_of_units
+            self.__product_description = product_description
+
+        def set_product_description(self, product_description):
+            self.__product_description = product_description
+
+        def set_number_of_units(self, number_of_units):
+            self.__number_of_units = number_of_units
+
+        def set_price(self, price):
+            self.__price = price
+
+        def get_product_description(self):
+            return self.__product_description
+
+        def get_number_of_units(self):
+            return self.__number_of_units
+
+        def get_price(self):
+            return self.__price
+
+        def __str__(self):
+            return f'Описание: {self.__product_description}\n' \
+                   f'Количство на складе: {self.__number_of_units}\n' \
+                   f'Цена: {self.__price}'
+
+    class CashRegister:
+        pass
+
+
 if __name__ == '__main__':
-    task_2_7()
+    task_2_5()
