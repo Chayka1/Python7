@@ -399,14 +399,14 @@ def task_2_7():
 
 
 def task_2_8():
-    class RetailItem:
-        def __init__(self, product_description, number_of_units, price):
-            self.__price = price
+    class Retailltem:
+        def __init__(self, name, number_of_units, price):
+            self.__name = name
             self.__number_of_units = number_of_units
-            self.__product_description = product_description
+            self.__price = price
 
-        def set_product_description(self, product_description):
-            self.__product_description = product_description
+        def set_name(self, name):
+            self.__name = name
 
         def set_number_of_units(self, number_of_units):
             self.__number_of_units = number_of_units
@@ -414,8 +414,8 @@ def task_2_8():
         def set_price(self, price):
             self.__price = price
 
-        def get_product_description(self):
-            return self.__product_description
+        def get_name(self):
+            return self.__name
 
         def get_number_of_units(self):
             return self.__number_of_units
@@ -423,10 +423,8 @@ def task_2_8():
         def get_price(self):
             return self.__price
 
-    class Retailltem:
-        def __init__(self, name, price):
-            self.name = name
-            self.price = price
+        def __repr__(self):
+            return repr(self.__name)
 
     class CashRegister:
         def __init__(self):
@@ -436,49 +434,62 @@ def task_2_8():
             self.items.append(item)
 
         def get_total(self):
-            total = 0
+            total_price = 0
             for item in self.items:
-                total += item.price
-            return total
+                total_price += item.price
+            return print(total_price)
 
         def show_items(self):
             for item in self.items:
-                print(item.name + ": " + str(item.price))
+                print(item.get_name() + ": " + str(item.get_price()))
 
         def clear(self):
             self.items = []
 
-    PUT_ITEM = 1
-    TOTAL_MONEY = 2
-    SHOW_ITEM = 3
-    DELETE_ITEM = 4
-    QUIT = 5
+    product_1 = Retailltem('Пиджак', 12, 59.95)
+    product_2 = Retailltem('Дизайнерские джинсы', 40, 34.95)
+    product_3 = Retailltem('Рубашка', 20, 24.95)
 
-    good1 = RetailItem('Пиджак', 12, 59.95)
-    good2 = RetailItem('Дизайнерские джинсы', 40, 34.95)
-    good3 = RetailItem('Рубашка', 20, 24.95)
+    purchase_item = 1
+    total = 2
+    show = 3
+    clear = 4
+    quit = 5
 
     def main():
         print('Эта программа позволяет купить товар, находящийся в наличии')
         print('----------------------------')
         print('В магазине имеется:')
-        print(good1)
-        print(good2)
-        print(good3)
+        print(product_1)
+        print(product_2)
+        print(product_3)
         choice = 0
+        selected_product = 0
 
-        while choice != QUIT:
-            items = CashRegister()
+        while choice != quit:
 
             choice = get_menu_choice()
 
-            if choice == PUT_ITEM:
-                pass
-            elif choice == TOTAL_MONEY:
-                pass
-            elif choice == SHOW_ITEM:
-                print()
-
+            if choice == purchase_item:
+                number_of_product = input(f'Выберите товар:\n'
+                                          f'1. {product_1}\n'
+                                          f'2. {product_2}\n'
+                                          f'3. {product_3} ')
+                if number_of_product == 1:
+                    selected_product = product_1
+                elif number_of_product == 2:
+                    selected_product = product_2
+                elif number_of_product == 3:
+                    selected_product = product_3
+                    register.purchase_item(selected_product)
+            elif choice == total:
+                register.get_total()
+            elif choice == show:
+                register.show_items()
+            elif choice == clear:
+                register.clear()
+            elif choice == quit:
+                exit()
 
     def get_menu_choice():
         print('----------------------------')
@@ -491,7 +502,7 @@ def task_2_8():
 
         return choice
 
-
+    register = CashRegister()
     main()
 
 
