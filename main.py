@@ -442,6 +442,61 @@ def task_2_8():
         def get_item_list(self):
             return self.__item_list
 
+    PUT_ITEM = 1
+    TOTAL_MONEY = 2
+    SHOW_ITEM = 3
+    DELETE_ITEM = 4
+    QUIT = 5
+
+    good1 = RetailItem('Пиджак', 12, 59.95)
+    good2 = RetailItem('Дизайнерские джинсы', 40, 34.95)
+    good3 = RetailItem('Рубашка', 20, 24.95)
+
+    def main():
+        print('Эта программа позволяет купить товар, находящийся в наличии')
+        print('----------------------------')
+        print('В магазине имеется:')
+        print(good1)
+        print(good2)
+        print(good3)
+        choice = 0
+
+        while choice != QUIT:
+            items = CashRegister()
+
+            choice = get_menu_choice()
+
+            if choice == PUT_ITEM:
+                add(items)
+            elif choice == TOTAL_MONEY:
+                get_money(items)
+
+    def get_menu_choice():
+        print('----------------------------')
+        print('1.Добавить товар в корзину')
+        print('2.Показать сумму покупки')
+        print('3.Показать товары в корзине')
+        print('4.Очистить корзину')
+        print('5.Выйти из программы')
+        choice = int(input('Введите соответствующий пункт меню: '))
+
+        return choice
+
+    def look_up(my_employees):
+        name = input('Введите имя: ')
+        print(my_employees.get(name, 'Это имя не найдено'))
+
+    def add(items):
+
+        item = input('Введите название товара: ')
+        items.purchase_item(item)
+        print(item + ' в корзине')
+
+    def get_money(items):
+        print(items.get_item_list())
+
+    main()
+
 
 if __name__ == '__main__':
-    task_2_5()
+    task_2_8()
