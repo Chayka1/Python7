@@ -506,5 +506,66 @@ def task_2_8():
     main()
 
 
+def task_2_9():
+    class Player:
+        def __init__(self, name):
+            self.__name = name
+
+        def set_name(self, name):
+            self.__name = name
+
+        def get_name(self):
+            return self.__name
+
+    class Question:
+        def __init__(self, question, answer_1, answer_2, answer_3, answer_4, number_of_true_answer):
+            self.__number_of_true_answer = number_of_true_answer
+            self.__answer_4 = answer_4
+            self.__answer_3 = answer_3
+            self.__answer_2 = answer_2
+            self.__answer_1 = answer_1
+            self.__question = question
+
+        def set_question(self, question):
+            self.__question = question
+
+        def set_answer_1(self, answer_1):
+            self.__answer_1 = answer_1
+
+        def set_answer_2(self, answer_2):
+            self.__answer_2 = answer_2
+
+        def set_answer_3(self, answer_3):
+            self.__answer_3 = answer_3
+
+        def set_answer_4(self, answer_4):
+            self.__answer_4 = answer_4
+
+        def set_number_of_true_answer(self, number_of_true_answer):
+            self.__number_of_true_answer = number_of_true_answer
+
+        def get_question(self):
+            return self.__question
+
+        def get_answer_1(self):
+            return self.__answer_1
+
+        def get_answer_2(self):
+            return self.__answer_2
+
+        def get_answer_3(self):
+            return self.__answer_3
+
+        def get_answer_4(self):
+            return self.__answer_4
+
+        def get_number_of_true_answer(self):
+            return self.__number_of_true_answer
+
+    list_question = []
+    qu = Question('Столица Украины?', 'Киев', 'Прага', 'Варшава', 'Бровары', 1)
+    list_question.append(qu)
+
+
 if __name__ == '__main__':
     task_2_8()
