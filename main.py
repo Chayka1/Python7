@@ -510,12 +510,19 @@ def task_2_9():
     class Player:
         def __init__(self, name):
             self.__name = name
+            self.__correct_answer = 0
 
         def set_name(self, name):
             self.__name = name
 
         def get_name(self):
             return self.__name
+
+        def __str__(self):
+            return self.__name
+
+        def __repr__(self):
+            return self.__str__()
 
     class Question:
         def __init__(self, question, answer_1, answer_2, answer_3, answer_4, number_of_true_answer):
@@ -562,10 +569,28 @@ def task_2_9():
         def get_number_of_true_answer(self):
             return self.__number_of_true_answer
 
-    list_question = []
-    qu = Question('Столица Украины?', 'Киев', 'Прага', 'Варшава', 'Бровары', 1)
-    list_question.append(qu)
+    class Game:
+        def __init__(self):
+            self.question_list = []
+
+        def play(self):
+            for index in range(0, len(self.question_list)):
+                if index % 2 == 0:
+                    print(player1)
+                else:
+                    print(player2)
+                print(self.question_list[index])
+
+
+    player1 = Player('Max')
+    player2 = Player('Bob')
+
+    g = Game()
+    g.question_list.append(Question('A', 1, 2, 3, 4, 1))
+
+    g.play()
+
 
 
 if __name__ == '__main__':
-    task_2_8()
+    task_2_9()
